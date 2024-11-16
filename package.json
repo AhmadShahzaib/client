@@ -6,7 +6,11 @@
   "scripts": {
     "start": "node src/index.js",
     "dev": "nodemon src/index.js",
-    "build": "node deploy.js"
+    "build:client": "cd ../client && npm install && npm run build",
+    "move:client": "mkdir -p public && cp -r ../client/build/* public/",
+    "build:server": "npm install",
+    "build": "npm run build:server && npm run build:client && npm run move:client"
+  
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
